@@ -7,62 +7,48 @@
 
 // ======== OBJECTS DEFINITIONS ========
 
-const dog = {
-    species: 'dog',
-    name: 'Toby',
-    gender: 'male',
-    legs: 4,
-    hands: 0,
-    saying: 'woof-woof!'
-};
+class Inhabitant{
+    constructor(species, name, gender, saying){
+        this.species = species;
+        this.name = name;
+        this.gender = gender;
+        this.saying = saying;
+    }
+    getShow(){
+        return `${this.species}; ${this.name}; ${this.gender}; ${this.saying};`
+    }
+}
 
-const cat = {
-    species: 'cat',
-    name: 'Tom',
-    gender: 'male',
-    legs: 4,
-    hands: 0,
-    saying: 'may-may!'
-};
+class Human extends Inhabitant{
+    constructor(species, name, gender, saying, legs, hands) {
+        super(species, name, gender, saying);
+        this.legs = legs;
+        this.hands = hands;
+    }
+    getShow(){
+        return super.getShow() + ` ${this.legs}; ${this.hands};`
+    }
+}
 
-const woman = {
-    species: 'human',
-    name: 'Inna',
-    gender: 'female',
-    legs: 2,
-    hands: 2,
-    saying: 'Hello world!'
-};
+class Animals extends Inhabitant{
+    constructor(species, name, gender, saying, legs) {
+        super(species, name, gender, saying);
+        this.legs = legs;
+    }
+    getShow(){
+        return super.getShow() + ` ${this.legs};`
+    }
+}
 
-const man = {
-    species: 'human',
-    name: 'Kyryl',
-    gender: 'male',
-    legs: 2,
-    hands: 2,
-    saying: 'Hello world!'
-};
+let man = new Human('man', 'Kyryl', 'male', 'Hello, World!', 2, 2);
+let woman = new Human('woman', 'Inna', 'female', 'Hello, World!', 2, 2);
+let cat = new Animals('cat', 'Tom', 'male','May!', 4);
+let dog = new Animals('dog', 'Toby', 'male','Gav!', 4);
 
-// ======== OUTPUT ========
+inhabitants = [man, woman, cat, dog];
 
-const inhabitants = [
-    dog,
-    cat,
-    woman,
-    man
-];
-
-const props = [
-    'species',
-    'name',
-    'gender',
-    'legs',
-    'hands',
-    'saying'
-];
-
-inhabitants.forEach(elem => {
+inhabitants.forEach(inhabitant => {
     print(
-        props.filter(prop => elem[prop] !== 0).map(prop => elem[prop]).join("; ")
+        inhabitant.getShow()
     );
 });
