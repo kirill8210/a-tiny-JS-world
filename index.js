@@ -24,8 +24,8 @@ class Inhabitant{
 }
 
 class Human extends Inhabitant{
-    constructor(species, name, gender, saying) {
-        super(species, name, gender, saying);
+    constructor(name, gender, saying) {
+        super('human', name, gender, saying);
         this.legs = 2;
         this.hands = 2;
     }
@@ -36,13 +36,13 @@ class Human extends Inhabitant{
 
 class Man extends Human{
     constructor(name, saying){
-        super('human', name, 'male', saying);
+        super(name, 'male', saying);
     }
 }
 
 class Woman extends Human{
     constructor(name, saying){
-        super('human', name, 'female', saying);
+        super(name, 'female', saying);
     }
 }
 
