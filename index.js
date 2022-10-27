@@ -36,13 +36,13 @@ class Human extends Inhabitant{
 
 class Man extends Human{
     constructor(name, saying){
-        super('man', name, 'male', saying);
+        super('human', name, 'male', saying);
     }
 }
 
 class Woman extends Human{
     constructor(name, saying){
-        super('woman', name, 'female', saying);
+        super('human', name, 'female', saying);
     }
 }
 
@@ -60,17 +60,11 @@ class Cat extends Animal{
     constructor(name, gender) {
         super('cat', name, gender, 'May!');
     }
-    getInfo(){
-        return super.getInfo();
-    }
 }
 
 class Dog extends Animal{
     constructor(name, gender) {
         super('dog', name, gender, 'Gav!');
-    }
-    getInfo(){
-        return super.getInfo();
     }
 }
 
